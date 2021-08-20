@@ -30,16 +30,10 @@ export default function Posts({ posts }: PostsProps) {
         <div className={styles.posts}>
           {posts.map(post => (
             <Link href="/">
-              <a className={styles.post}>
-                <img src="/post_01.png" alt="Post" />
-                <div className={styles.postContent}>
-                  <span>{post.updatedAt}</span>
-                  <h1>
-                    {post.title}
-                  </h1>
-                  <p>{post.excerpt}..</p>
-                  <p>Por <span>Equipe Exiospace 💙</span></p>
-                </div>
+              <a key={post.slug}>
+                <time>{post.updatedAt}</time>
+                <strong>{post.title}</strong>
+                <p>{post.excerpt}</p>
               </a>
             </Link>
           ))}
